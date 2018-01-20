@@ -146,6 +146,7 @@ header.masthead {
           
 .dropdown:hover .dropbtn {
     background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 .plus {
@@ -154,4 +155,9 @@ header.masthead {
     color: white;
     font-size: 1em;
     padding: 10px;
+}
+
+[class*="receipt-"]:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 6px 9px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
