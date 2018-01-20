@@ -16,7 +16,9 @@ angular
   'ui.router',
   'oc.lazyLoad',
   'ncy-angular-breadcrumb',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'ui-notification',
+  'chart.js'
 ])
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
@@ -29,3 +31,16 @@ angular
   $rootScope.$state = $state;
   return $rootScope.$stateParams = $stateParams;
 }]);
+
+// Angular-ui-notification configuration
+// angular.module('ui-notification').config(function (NotificationProvider) {
+//   NotificationProvider.setOptions({
+//     delay: 10000,
+//     startTop: 20,
+//     startRight: 10,
+//     verticalSpacing: 20,
+//     horizontalSpacing: 20,
+//     positionX: 'left',
+//     positionY: 'bottom'
+//   });
+// });

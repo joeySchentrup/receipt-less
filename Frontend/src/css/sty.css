@@ -148,10 +148,10 @@ header.masthead {
     background-color: #f1f1f1;
 }
 
-.fa-plus {
-    background-color: #5cb85c;
+.plus {
+    /* background-color: #5cb85c; */
     border-radius: 50%;
     color: white;
-    font-size: 5em;
+    font-size: 1em;
     padding: 10px;
 }
