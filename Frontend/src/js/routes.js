@@ -54,6 +54,25 @@ angular
       }],
     }
   })
+  .state('appSimple', {
+    abstract: true,
+    templateUrl: 'views/common/layouts/simple.html',
+    resolve: {
+      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load CSS files
+        return $ocLazyLoad.load([{
+          serie: true,
+          name: 'Font Awesome',
+          files: ['node_modules/font-awesome/css/font-awesome.min.css']
+        },{
+          serie: true,
+          name: 'Simple Line Icons',
+          files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
+        }]);
+      }],
+    }
+  })
+
   .state('app.main', {
     url: '/dashboard',
     templateUrl: 'views/main.html',
@@ -86,57 +105,26 @@ angular
       }]
     }
   })
-  .state('appSimple', {
-    abstract: true,
-    templateUrl: 'views/common/layouts/simple.html',
-    resolve: {
-      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load CSS files
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'Font Awesome',
-          files: ['node_modules/font-awesome/css/font-awesome.min.css']
-        },{
-          serie: true,
-          name: 'Simple Line Icons',
-          files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
-        }]);
-      }],
+  .state('app.receipt', {
+    url: '/receipt',
+    templateUrl: 'views/common/receipt.html',
+    ncyBreadcrumb: {
+      label: 'Add Receipt',
     }
   })
-
-  // Additional Pages
-  // .state('appSimple.login', {
-  //   url: '/login',
-  //   templateUrl: 'views/pages/login.html'
-  // })
-  // .state('appSimple.register', {
-  //   url: '/register',
-  //   templateUrl: 'views/pages/register.html'
-  // })
-  // .state('appSimple.404', {
-  //   url: '/404',
-  //   templateUrl: 'views/pages/404.html'
-  // })
-  // .state('appSimple.500', {
-  //   url: '/500',
-  //   templateUrl: 'views/pages/500.html'
-  // })
-
-  .state('login', {
-    url: '/login',
-    templateUrl: 'views/login.html'
+  .state('app.expense', {
+    url: '/expense',
+    templateUrl: 'views/common/expense.html',
+    ncyBreadcrumb: {
+      label: 'Expenses',
+    }
   })
   .state('profile', {
     url: '/profile',
     templateUrl: 'views/profile.html'
   })
-  .state('app.receipt', {
-    url: '/receipt',
-    templateUrl: 'views/common/receipt.html'
-  })
-  .state('app.expense', {
-    url: '/expense',
-    templateUrl: 'views/common/expense.html'
+  .state('login', {
+    url: '/login',
+    templateUrl: 'views/login.html'
   })
 }]);
