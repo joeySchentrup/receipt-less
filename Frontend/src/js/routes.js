@@ -6,7 +6,7 @@ angular
 
   $ocLazyLoadProvider.config({
     // Set to true if you want to see what and when is dynamically loaded
-    debug: true
+    debug: false
   });
 
   $breadcrumbProvider.setOptions({
@@ -16,115 +16,46 @@ angular
   });
 
   $stateProvider
-  .state('app', {
-    abstract: true,
-    templateUrl: 'views/common/layouts/full.html',
-    //page title goes here
-    ncyBreadcrumb: {
-      label: 'Root',
-      skip: true
-    },
-    resolve: {
-      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load CSS files
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'Flags',
-          files: ['node_modules/flag-icon-css/css/flag-icon.min.css']
-        },{
-          serie: true,
-          name: 'Font Awesome',
-          files: ['node_modules/font-awesome/css/font-awesome.min.css']
-        },{
-          serie: true,
-          name: 'Simple Line Icons',
-          files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
-        }]);
-      }],
-      loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
-        // you can lazy load files for an existing module
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'chart.js',
-          files: [
-            'node_modules/chart.js/dist/Chart.min.js',
-            'node_modules/angular-chart.js/dist/angular-chart.min.js'
-          ]
-        }]);
-      }],
-    }
-  })
-  .state('appSimple', {
-    abstract: true,
-    templateUrl: 'views/common/layouts/simple.html',
-    resolve: {
-      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load CSS files
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'Font Awesome',
-          files: ['node_modules/font-awesome/css/font-awesome.min.css']
-        },{
-          serie: true,
-          name: 'Simple Line Icons',
-          files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
-        }]);
-      }],
-    }
-  })
-
-  .state('app.main', {
-    url: '/dashboard',
-    templateUrl: 'views/main.html',
-    controller: 'dashboardCtrl',
-    //page title goes here
-    ncyBreadcrumb: {
-      label: 'Home',
-    },
-    //page subtitle goes here
-    params: { subtitle: 'Welcome to ROOT powerfull Bootstrap & AngularJS UI Kit' },
-    resolve: {
-      loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
-        // you can lazy load files for an existing module
-        return $ocLazyLoad.load([
-          {
-            serie: true,
-            name: 'chart.js',
-            files: [
-              'node_modules/chart.js/dist/Chart.min.js',
-              'node_modules/angular-chart.js/dist/angular-chart.min.js'
-            ]
-          },
-        ]);
-      }],
-      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load controllers
-        return $ocLazyLoad.load({
-          files: ['js/controllers/main.js']
-        });
-      }]
-    }
-  })
-  .state('app.receipt', {
-    url: '/receipt',
-    templateUrl: 'views/common/receipt.html',
-    ncyBreadcrumb: {
-      label: 'Add Receipt',
-    }
-  })
-  .state('app.expense', {
-    url: '/expense',
-    templateUrl: 'views/common/expense.html',
-    ncyBreadcrumb: {
-      label: 'Expenses',
-    }
-  })
-  .state('profile', {
-    url: '/profile',
-    templateUrl: 'views/profile.html'
-  })
-  .state('login', {
-    url: '/login',
-    templateUrl: 'views/login.html'
-  })
+    .state('app', { // Full layout
+      abstract: true,
+      templateUrl: 'views/common/layouts/full.html',
+      ncyBreadcrumb: {
+        label: 'Root',
+        skip: true
+      }
+    })
+    .state('app.main', { // Main dashboard
+      url: '/dashboard',
+      templateUrl: 'views/main.html',
+      controller: 'DashboardController',
+      ncyBreadcrumb: {
+        label: 'Home',
+      }
+    })
+    .state('app.add-receipts', { // Add receipts
+      url: '/add-receipts',
+      templateUrl: 'views/common/add-receipts.html',
+      controller: 'AddReceiptsController',
+      ncyBreadcrumb: {
+        label: 'Add Receipt',
+      }
+    })
+    .state('app.expenses', { // Expenses
+      url: '/expenses',
+      templateUrl: 'views/common/expenses.html',
+      controller: 'ExpensesController',
+      ncyBreadcrumb: {
+        label: 'Expenses',
+      }
+    })
+    .state('profile', { // User profile
+      url: '/profile',
+      templateUrl: 'views/profile.html',
+      controller: 'ProfileController'
+    })
+    .state('login', { // Login/register
+      url: '/login',
+      templateUrl: 'views/login.html',
+      controller: 'LoginController'
+    })
 }]);
