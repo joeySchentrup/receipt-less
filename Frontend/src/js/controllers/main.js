@@ -1,7 +1,6 @@
 //main.js
 angular
 .module('app')
-.controller('dashboardCtrl', dashboardCtrl)
 .controller('cardChartCtrl1', cardChartCtrl1)
 .controller('cardChartCtrl2', cardChartCtrl2)
 .controller('cardChartCtrl3', cardChartCtrl3)
@@ -13,11 +12,6 @@ angular
 .controller('horizontalBarsCtrl', horizontalBarsCtrl)
 .controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
 .controller('usersTableCtrl', usersTableCtrl);
-
-dashboardCtrl.$inject = ['$scope', '$http'];
-function dashboardCtrl($scope, $http) {
-  $scope.name = "Joseph";
-}
 
 
 //convert Hex to RGBA
