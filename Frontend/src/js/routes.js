@@ -121,4 +121,12 @@ angular
     url: '/500',
     templateUrl: 'views/pages/500.html'
   })
+  .state('app.receipt', {
+    url: '/receipt',
+    templateUrl: 'views/common/receipt.html'
+  })
+  .state('app.expense', {
+    url: '/expense',
+    templateUrl: 'views/common/expense.html'
+  })
 }]);
