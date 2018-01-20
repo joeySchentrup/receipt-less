@@ -1,14 +1,20 @@
 <header class="app-header navbar">
-  <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" ui-sref="app.main"></a>
   <ul class="nav navbar-nav d-md-down-none">
     <li class="nav-item">
       <a class="nav-link navbar-toggler sidebar-toggler" href="#">
         <span class="navbar-toggler-icon"></span>
       </a>
     </li>
-
   </ul>
+
+  <!-- <h2>Receipt-Less</h2> -->
+  <img src="img/logo.png" alt="Receipt-Less">
+
+  <div class="dropdown">
+    <i class="dropbtn" class="fa fa-user" ></i>
+    <div class="dropdown-content">
+        <a ui-sref="profile">My Profile</a>
+        <a href="#">Sign Out</a>
+      </div>
+  </div>
 </header>

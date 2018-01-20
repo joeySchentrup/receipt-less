@@ -13,6 +13,7 @@ angular
 .controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
 .controller('usersTableCtrl', usersTableCtrl);
 
+
 //convert Hex to RGBA
 function convertHex(hex,opacity){
   hex = hex.replace('#','');
