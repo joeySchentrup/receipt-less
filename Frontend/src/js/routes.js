@@ -1,6 +1,6 @@
 angular
 .module('app')
-.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider, $locationProvider) {
 
   $urlRouterProvider.otherwise('/dashboard');
 
@@ -105,25 +105,32 @@ angular
   })
 
   // Additional Pages
-  .state('appSimple.login', {
-    url: '/login',
-    templateUrl: 'views/pages/login.html'
-  })
-  .state('appSimple.register', {
-    url: '/register',
-    templateUrl: 'views/pages/register.html'
-  })
-  .state('appSimple.404', {
-    url: '/404',
-    templateUrl: 'views/pages/404.html'
-  })
-  .state('appSimple.500', {
-    url: '/500',
-    templateUrl: 'views/pages/500.html'
-  })
+  // .state('appSimple.login', {
+  //   url: '/login',
+  //   templateUrl: 'views/pages/login.html'
+  // })
+  // .state('appSimple.register', {
+  //   url: '/register',
+  //   templateUrl: 'views/pages/register.html'
+  // })
+  // .state('appSimple.404', {
+  //   url: '/404',
+  //   templateUrl: 'views/pages/404.html'
+  // })
+  // .state('appSimple.500', {
+  //   url: '/500',
+  //   templateUrl: 'views/pages/500.html'
+  // })
 
+  .state('login', {
+    url: '/login',
+    templateUrl: 'views/login.html'
+  })
   .state('profile', {
     url: '/profile',
     templateUrl: 'views/profile.html'
   })
+
+  // use the HTML5 History API
+  $locationProvider.html5Mode(true);
 }]);
