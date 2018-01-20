@@ -121,4 +121,9 @@ angular
     url: '/500',
     templateUrl: 'views/pages/500.html'
   })
+
+  .state('profile', {
+    url: '/profile',
+    templateUrl: 'views/profile.html'
+  })
 }]);
