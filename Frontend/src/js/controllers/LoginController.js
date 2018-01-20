@@ -8,12 +8,32 @@ function LoginController($scope, $http, $state, Notification) {
   var vm = this;
 
   vm.login = login;
+  vm.test = test;
   vm.user = {
-    'firstName': '',
-    'lastName': '',
-    'email': '',
-    'phone': '',
-    'password': ''
+    'firstName': 'John',
+    'lastName': 'Smiley',
+    'email': 'smile@gmail.com',
+    'phone': 9187287182,
+    'password': 'john'
+  }
+
+  function test() {
+    var url = 'http://165.227.206.185:8000' + '/account'
+    var config = {};
+    $http({
+      url: url,
+      method: "POST",
+      data: vm.user,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  })
+  .then(function(response) {
+          // success
+          console.log(response);
+  }, 
+  function(response) { // optional
+          // failed
+          console.log(response);
+  });
   }
 
   function login(isValid) {
