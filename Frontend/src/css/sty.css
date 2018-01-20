@@ -40,7 +40,6 @@
     display: block;
 }
 
-<<<<<<< HEAD
 /* Change the background color of the dropdown button when the dropdown content is shown */
 /* .dropdown:hover .dropbtn {
     background-color: #3e8e41;
@@ -145,7 +144,6 @@ header.masthead {
                     #mainNav.navbar-shrink .navbar-nav > li > a:focus:hover {
                       color: white; } }
           
-=======
 .dropdown:hover .dropbtn {
     background-color: #f1f1f1;
 }
@@ -157,4 +155,3 @@ header.masthead {
     font-size: 5em;
     padding: 10px;
 }
->>>>>>> f7076084310bf6c6cd7291f015643a216d95658f
