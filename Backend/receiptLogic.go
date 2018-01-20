@@ -10,21 +10,25 @@ import (
 func addReceipt(w http.ResponseWriter, r *http.Request) {
 	param := mux.Vars(r)
 	var receipt Receipt
-	_ = json.NewDecoder(r.Body).Decode(&receipt)
+	err := json.NewDecoder(r.Body).Decode(&receipt)
+	errCheck(err)
 
-	responce := GetCollection(param["collection"]).Insert(&receipt)
-	json.NewEncoder(w).Encode(responce)
+	err = GetCollection(param["collection"]).Insert(&receipt)
+	errCheck(err)
+	json.NewEncoder(w).Encode(receipt)
 }
 
 func removeReceipt(w http.ResponseWriter, r *http.Request) {
 	param := mux.Vars(r)
-	GetCollection(param["collection"]).RemoveId(param["id"])
+	err := GetCollection(param["collection"]).RemoveId(param["id"])
+	errCheck(err)
 }
 
 func getReceipts(w http.ResponseWriter, r *http.Request) {
 	param := mux.Vars(r)
 	receipts := make([]Receipt, 5)
-	GetCollection(param["collection"]).Find(nil).All(&receipts)
+	err := GetCollection(param["collection"]).Find(nil).All(&receipts)
+	errCheck(err)
 	json.NewEncoder(w).Encode(receipts)
 }
 
