@@ -15,9 +15,10 @@ func getAccount(w http.ResponseWriter, r *http.Request) {
 
 	err := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": params["email"]}).One(&result)
 	if err != nil {
-		http.Error(w, "Error! Does that collections exist?!", http.StatusBadRequest)
+		http.Error(w, "Error!", http.StatusBadRequest)
+	} else {
+		json.NewEncoder(w).Encode(result)
 	}
-	json.NewEncoder(w).Encode(result)
 }
 
 func createAccount(w http.ResponseWriter, r *http.Request) {
@@ -27,10 +28,10 @@ func createAccount(w http.ResponseWriter, r *http.Request) {
 	n, _ := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": account.Email}).Count()
 	if n != 0 {
 		http.Error(w, "Error! Does that account already exist?!", http.StatusBadRequest)
+	} else {
+		responce := GetCollection(ACCOUNT_COLLECTION).Insert(account)
+		json.NewEncoder(w).Encode(responce)
 	}
-
-	responce := GetCollection(ACCOUNT_COLLECTION).Insert(account)
-	json.NewEncoder(w).Encode(responce)
 }
 
 type Account struct {
