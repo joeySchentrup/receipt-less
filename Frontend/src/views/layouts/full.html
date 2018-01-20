@@ -1,22 +1,24 @@
 <!-- Navbar -->
-<div ng-include="'views/common/navbar.html'" include-replace></div>
+<div ng-include="'views/nav/navbar.html'" include-replace></div>
+
 <div class="app-body">
   <!-- Navigation -->
-  <div ng-include="'views/common/sidebar-nav.html'" include-replace></div>
-  <!-- Main content -->
+  <div ng-include="'views/nav/sidebar-nav.html'" include-replace></div>
+
   <main class="main">
     <!-- Breadcrumb -->
     <ol class="breadcrumb" breadcrumb>
       <ncy-breadcrumb></ncy-breadcrumb>
-
     </ol>
+
     <div class="container-fluid">
       <ui-view></ui-view>
     </div>
-    <!-- /.conainer-fluid -->
   </main>
+
+  <!-- <div ng-include="'views/dashboard/categories.html'" include-replace></div> -->
 
 </div>
 
 <!-- Footer -->
-<div ng-include="'views/common/footer.html'" include-replace></div>
+<div ng-include="'views/footer.html'" include-replace></div>
