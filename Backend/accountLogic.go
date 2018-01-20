@@ -21,23 +21,16 @@ func getAccount(w http.ResponseWriter, r *http.Request) {
 }
 
 func createAccount(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
     var account Account
 	_ = json.NewDecoder(r.Body).Decode(&account)
 
-	n, err := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": account.Email}).Count()
-	if err != nil {
-		http.Error(w, "Error! Does that account exist?!", http.StatusBadRequest)
+	n, _ := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": account.Email}).Count()
+	if n != 0 {
+		http.Error(w, "Error! Does that account already exist?!", http.StatusBadRequest)
 	}
 
 	responce := GetCollection(ACCOUNT_COLLECTION).Insert(account)
 	json.NewEncoder(w).Encode(responce)
-}
-
-func deleteAccount(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	GetCollection(ACCOUNT_COLLECTION).RemoveId(params["id"])
-	errCheck(err) 
 }
 
 type Account struct {
