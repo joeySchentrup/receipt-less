@@ -53,6 +53,7 @@ angular
       url: '/profile',
       templateUrl: 'views/user/profile.html',
       controller: 'ProfileController',
+      controllerAs: 'vm',
       ncyBreadcrumb: {
         label: 'Profile',
       }
@@ -60,6 +61,7 @@ angular
     .state('login', { // Login/register
       url: '/login',
       templateUrl: 'views/user/login.html',
-      controller: 'LoginController'
+      controller: 'LoginController',
+      controllerAs: 'vm'
     })
 }]);
