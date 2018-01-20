@@ -130,11 +130,6 @@ angular
     url: '/profile',
     templateUrl: 'views/profile.html'
   })
-
-  .state('profile', {
-    url: '/profile',
-    templateUrl: 'views/profile.html'
-  })
   .state('app.receipt', {
     url: '/receipt',
     templateUrl: 'views/common/receipt.html'
