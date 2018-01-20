@@ -14,24 +14,35 @@ func getAccount(w http.ResponseWriter, r *http.Request) {
 	var result interface{}
 
 	err := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": params["email"]}).One(&result)
-	if err != nil {
-		http.Error(w, "Error!", http.StatusBadRequest)
-	} else {
-		json.NewEncoder(w).Encode(result)
-	}
+	errCheck(err)
+	json.NewEncoder(w).Encode(result)
+
 }
 
 func createAccount(w http.ResponseWriter, r *http.Request) {
     var account Account
-	_ = json.NewDecoder(r.Body).Decode(&account)
+	err := json.NewDecoder(r.Body).Decode(&account)
+	errCheck(err)
 
-	n, _ := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": account.Email}).Count()
+	n, er := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": account.Email}).Count()
+	errCheck(er)
 	if n != 0 {
 		http.Error(w, "Error! Does that account already exist?!", http.StatusBadRequest)
 	} else {
-		responce := GetCollection(ACCOUNT_COLLECTION).Insert(account)
-		json.NewEncoder(w).Encode(responce)
+		err = GetCollection(ACCOUNT_COLLECTION).Insert(account)
+		errCheck(err)
+		json.NewEncoder(w).Encode(account)
 	}
+}
+
+func editAccount(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	var account Account
+	err := json.NewDecoder(r.Body).Decode(&account)
+	errCheck(err)
+	_, err = GetCollection(ACCOUNT_COLLECTION).UpsertId(params["id"], account)
+	errCheck(err)
+	json.NewEncoder(w).Encode(account)
 }
 
 type Account struct {
