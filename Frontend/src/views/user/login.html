@@ -3,11 +3,18 @@
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-lg-7 my-auto">
-                <div class="header-content mx-auto">
-                    <h1><b>Receipt-Less</b></h1>
-                    <h3>"Over 250 million gallons of oil, 10 million trees and 1 billion gallons of water are consumed each year
+                <div class="header-content mx-rauto">
+                    <h1 style="margin-bottom: 10px"><b>Saving the World. One receipt at a time.</b></h1>
+                    <br>
+                    <img src="img/logo.png" alt="Receipt-Less" style="width: 25em; height: 5em; margin-bottom: 10px">
+                    <br> <br> <br>
+                    <h5>
+                        "Over 250 million gallons of oil, 10 million trees and 1 billion gallons of water are consumed each year
                         in the creation of receipts for the United States alone, generating 1.5 billion pounds of waste."
-                        -Huffington Post</h3>
+                    </h5>
+                    <h5 style="float: right">
+                        -Huffington Post
+                    </h5>
                 </div>
             </div>
 
@@ -16,23 +23,55 @@
                     <div class="device-mockup iphone6_plus portrait white">
                         <div class="device">
                             <div class="screen">
-                                <section>
-                                    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-                                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-                                            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-                                        </div>
-                                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                                            <label for="password">Password</label>
-                                            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-                                            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <button ui-sref="app.main" class="btn btn-primary">Login</button>
-                                            <button ui-sref="app.main" class="btn btn-primary">Register</button>
-                                        </div>
-                                    </form>
+                                <form name="vm.userForm" ng-submit="vm.login(vm.userForm.$valid)" novalidate>
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.firstName.valid }">
+                                        <label for="vm.user.firstName">First Name</label>
+                                        <input type="text" class="form-control" name="vm.user.firstName" 
+                                            ng-model="vm.user.firstName" required/>
+                                        <!-- <div ng-if="!vm.userForm.submitted && !vm.user.firstName.$valid" class="help-block">
+                                            First name is required.
+                                        </div> -->
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.lastName.valid }">
+                                        <label for="vm.user.lastName">Last Name</label>
+                                        <input type="text" class="form-control" name="vm.user.lastName" 
+                                            ng-model="vm.user.lastName" required/>
+                                        <!-- <div ng-if="vm.user.lastName.valid" class="help-block">
+                                            Last name is required.
+                                        </div> -->
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.email.valid }">
+                                        <label for="vm.user.email">Email</label>
+                                        <input type="text" class="form-control" name="vm.user.email" 
+                                            ng-model="vm.user.email" required/>
+                                        <!-- <div ng-if="vm.user.email.valid" class="help-block">
+                                            Email is required.
+                                        </div> -->
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.phone.valid }">
+                                        <label for="vm.user.phone">Phone Number</label>
+                                        <input type="text" class="form-control" name="vm.user.phone" 
+                                            ng-model="vm.user.phone" required/>
+                                        <!-- <div ng-if="vm.user.phone.valid" class="help-block">
+                                            Phone number is required.
+                                        </div> -->
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.password.valid }">
+                                        <label for="vm.user.password">Password</label>
+                                        <input type="text" class="form-control" name="vm.user.password" 
+                                            ng-model="vm.user.password" ng-attr-type="{{ showPassword ? 'text' : 'password' }}" required/>
+                                        <!-- <div ng-if="vm.user.password.valid" class="help-block">
+                                            Password is required.
+                                        </div> -->
+                                    </div>
+
+                                    <button class="btn btn-info" type="submit">Login</button>
+                                    <button class="btn btn-info" type="submit">Register</button>
+                                </form>
                             </div>
                         </div>
                     </div>
