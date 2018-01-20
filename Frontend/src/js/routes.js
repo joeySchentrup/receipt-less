@@ -18,7 +18,7 @@ angular
   $stateProvider
     .state('app', { // Full layout
       abstract: true,
-      templateUrl: 'views/common/layouts/full.html',
+      templateUrl: 'views/layouts/full.html',
       ncyBreadcrumb: {
         label: 'Root',
         skip: true
@@ -34,7 +34,7 @@ angular
     })
     .state('app.add-receipts', { // Add receipts
       url: '/add-receipts',
-      templateUrl: 'views/common/add-receipts.html',
+      templateUrl: 'views/dashboard/add-receipts.html',
       controller: 'AddReceiptsController',
       ncyBreadcrumb: {
         label: 'Add Receipt',
@@ -42,7 +42,7 @@ angular
     })
     .state('app.expenses', { // Expenses
       url: '/expenses',
-      templateUrl: 'views/common/expenses.html',
+      templateUrl: 'views/dashboard/expenses.html',
       controller: 'ExpensesController',
       ncyBreadcrumb: {
         label: 'Expenses',
@@ -50,12 +50,12 @@ angular
     })
     .state('profile', { // User profile
       url: '/profile',
-      templateUrl: 'views/profile.html',
+      templateUrl: 'views/user/profile.html',
       controller: 'ProfileController'
     })
     .state('login', { // Login/register
       url: '/login',
-      templateUrl: 'views/login.html',
+      templateUrl: 'views/user/login.html',
       controller: 'LoginController'
     })
 }]);
