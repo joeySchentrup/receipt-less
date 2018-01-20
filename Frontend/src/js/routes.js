@@ -133,10 +133,16 @@ angular
   })
   .state('app.receipt', {
     url: '/receipt',
-    templateUrl: 'views/common/receipt.html'
+    templateUrl: 'views/common/receipt.html',
+    ncyBreadcrumb: {
+      label: 'Add Receipt',
+    }
   })
   .state('app.expense', {
     url: '/expense',
-    templateUrl: 'views/common/expense.html'
+    templateUrl: 'views/common/expense.html',
+    ncyBreadcrumb: {
+      label: 'Expenses',
+    }
   })
 }]);
