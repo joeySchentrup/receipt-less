@@ -10,6 +10,7 @@
                         -Huffington Post</h3>
                 </div>
             </div>
+
             <div class="col-lg-5 my-auto">
                 <div class="device-container">
                     <div class="device-mockup iphone6_plus portrait white">
@@ -28,21 +29,15 @@
                                             <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
                                         </div>
                                         <div class="form-group">
-                                            <button [disabled]="loading" class="btn btn-primary">Login</button>
-                                            <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/> -->
-                                            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+                                            <button ui-sref="app.main" class="btn btn-primary">Login</button>
+                                            <button ui-sref="app.main" class="btn btn-primary">Register</button>
                                         </div>
                                     </form>
                             </div>
-                        </div>
-                        <div class="button">
-                            <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </header>
-</div>

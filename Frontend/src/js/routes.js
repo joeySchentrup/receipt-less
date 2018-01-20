@@ -1,6 +1,7 @@
 angular
 .module('app')
-.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', 
+  function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
 
   $urlRouterProvider.otherwise('/dashboard');
 
@@ -48,10 +49,13 @@ angular
         label: 'Expenses',
       }
     })
-    .state('profile', { // User profile
+    .state('app.profile', { // User profile
       url: '/profile',
       templateUrl: 'views/user/profile.html',
-      controller: 'ProfileController'
+      controller: 'ProfileController',
+      ncyBreadcrumb: {
+        label: 'Profile',
+      }
     })
     .state('login', { // Login/register
       url: '/login',
