@@ -96,7 +96,7 @@ function DashboardController($scope, $http, Notification, TransferService) {
   $scope.search = function(str) {
     var searchArray = [];
 
-    $scope.receipts.forEach(rec => {
+    $scope.currentReceipts.forEach(rec => {
       if(rec.businessName.includes(str) || rec.itemName.includes(str)) {
         searchArray.push(rec);  
       }
