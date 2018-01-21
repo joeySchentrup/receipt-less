@@ -83,14 +83,19 @@ node_deprecation_warning() {
         print_bold \
 "                            DEPRECATION WARNING                            " "\
 ${bold}${NODENAME} is no longer actively supported!${normal}
+
   ${bold}You will not receive security or critical stability updates${normal} for this version.
+
   You should migrate to a supported version of Node.js as soon as possible.
   Use the installation script that corresponds to the version of Node.js you
   wish to install. e.g.
+
    * ${green}https://deb.nodesource.com/setup_4.x — Node.js v4 LTS \"Argon\"${normal} (recommended)
    * ${green}https://deb.nodesource.com/setup_6.x — Node.js v6 Current${normal}
+
   Please see ${bold}https://github.com/nodejs/LTS/${normal} for details about which version
   may be appropriate for you.
+
   The ${bold}NodeSource${normal} Node.js Linux distributions GitHub repository contains
   information about which versions of Node.js and which Linux distributions
   are supported and how to use the install scripts.
@@ -106,15 +111,20 @@ ${bold}${NODENAME} is no longer actively supported!${normal}
         print_bold \
 "                     NODE.JS v0.10 DEPRECATION WARNING                      " "\
 Node.js v0.10 will cease to be actively supported in ${bold}October 2016${normal}.
+
   This means you will not continue to receive security or critical stability
   updates for this version of Node.js beyond that time.
+
   You should begin migration to a newer version of Node.js as soon as
   possible. Use the installation script that corresponds to the version of
   Node.js you wish to install. e.g.
+
    * ${green}https://deb.nodesource.com/setup_4.x — Node.js v4 LTS \"Argon\"${normal} (recommended)
    * ${green}https://deb.nodesource.com/setup_6.x — Node.js v6 Current${normal}
+
   Please see ${bold}https://github.com/nodejs/LTS/${normal} for details about which version
   may be appropriate for you.
+
   The ${bold}NodeSource${normal} Node.js Linux distributions GitHub repository contains
   information about which versions of Node.js and which Linux distributions
   are supported and how to use the install scripts.
@@ -131,15 +141,20 @@ Node.js v0.10 will cease to be actively supported in ${bold}October 2016${normal
         print_bold \
 "                     NODE.JS v0.12 DEPRECATION WARNING                      " "\
 Node.js v0.12 will cease to be actively supported ${bold}at the end of 2016${normal}.
+
   This means you will not continue to receive security or critical stability
   updates for this version of Node.js beyond that time.
+
   You should begin migration to a newer version of Node.js as soon as
   possible. Use the installation script that corresponds to the version of
   Node.js you wish to install. e.g.
+
    * ${green}https://deb.nodesource.com/setup_4.x — Node.js v4 LTS \"Argon\"${normal} (recommended)
    * ${green}https://deb.nodesource.com/setup_6.x — Node.js v6 Current${normal}
+
   Please see ${bold}https://github.com/nodejs/LTS/${normal} for details about which version
   may be appropriate for you.
+
   The ${bold}NodeSource${normal} Node.js Linux distributions GitHub repository contains
   information about which versions of Node.js and which Linux distributions
   are supported and how to use the install scripts.
@@ -161,12 +176,16 @@ script_deprecation_warning() {
 This script, located at ${bold}https://deb.nodesource.com/setup${normal}, used to
   install Node.js v0.10, is being deprecated and will eventually be made
   inactive.
+
   You should use the script that corresponds to the version of Node.js you
   wish to install. e.g.
+
    * ${green}https://deb.nodesource.com/setup_4.x — Node.js v4 LTS \"Argon\"${normal} (recommended)
    * ${green}https://deb.nodesource.com/setup_6.x — Node.js v6 Current${normal}
+
   Please see ${bold}https://github.com/nodejs/LTS/${normal} for details about which version
   may be appropriate for you.
+
   The ${bold}NodeSource${normal} Node.js Linux distributions GitHub repository contains
   information about which versions of Node.js and which Linux distributions
   are supported and how to use the install scripts.
@@ -238,6 +257,7 @@ check_alt() {
 
 check_alt "Kali"          "sana"     "Debian" "jessie"
 check_alt "Kali"          "kali-rolling" "Debian" "jessie"
+check_alt "Sparky Linux"  "Nibiru"   "Debian" "jessie"
 check_alt "Linux Mint"    "maya"     "Ubuntu" "precise"
 check_alt "Linux Mint"    "qiana"    "Ubuntu" "trusty"
 check_alt "Linux Mint"    "rafaela"  "Ubuntu" "trusty"

@@ -9,4 +9,4 @@ docker run -p 8000:8000 --name backend --link mongo:mongo receipt-less:1
 
 cd ../Frontend
 docker build -t gulp:1 -f ./gulp.dockerfile .
-docker run -p 3000:3000 gulp:1
+docker run --link backend:backend -p 3000:3000 gulp:1
