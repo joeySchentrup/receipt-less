@@ -55,7 +55,7 @@ function DashboardController($scope, $http, Notification) {
     //   headers: {'Content-Type': 'text/plain; charset=utf-8'}
     // })
     $http.get(url)
-      .then(function(response) {
+      .then(response => {
         console.log(response);
         Notification.success({message: 'Success!'});
       })
@@ -64,4 +64,14 @@ function DashboardController($scope, $http, Notification) {
         Notification.error({message: 'Error!'});
       });
   }
+
+  // $scope.search = function(string) {
+  //   var searchArray = [];
+  //   $scope.receipts.forEach(rec => {
+  //     if(rec.businessName.contains(string) || rec.itemName.contains(string)) {
+  //       searchArray.push[];
+  //     }
+  //   });
+
+  // }
 }
