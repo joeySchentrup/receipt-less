@@ -1,18 +1,21 @@
 # receipt-less
-Swamp Hacks 2018 - https://devpost.com/software/receipt-less
+Swamp Hacks 2018: https://devpost.com/software/receipt-less
+
 Website Link: http://receipt-less.com/
 
-## Local Frontend Build
+## How to run locally
 
-Install dependencies:
+- Install dependencies:
 
     npm install -g gulp
     cd Frontend/
     npm install
 
-Change gulpfile.js port to any available port (eg. 3000)
+- Change gulpfile.js port to any available port (eg. 3000)
 
-Run 'gulp'
+- Start the app
+
+    gulp
 
 ## Backend Docker set up:
 
