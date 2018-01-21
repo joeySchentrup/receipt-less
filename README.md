@@ -3,6 +3,8 @@ Swamp Hacks 2018: https://devpost.com/software/receipt-less
 
 Website Link: http://receipt-less.com/
 
+![home-page](https://user-images.githubusercontent.com/14670479/35195798-b1cbd7cc-fe96-11e7-918d-c7153efad4a4.png)
+
 ## How to run locally
 
 - Install dependencies:
