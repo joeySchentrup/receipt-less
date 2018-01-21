@@ -24,7 +24,7 @@
 </section>
 
   <div class="row">
-    <center ng-repeat="receipt in receipts track by $index" class="col-sm-6 col-lg-3">
+    <center ng-repeat="receipt in currentReceipts track by $index" class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-body receipt-{{$index}}">
           <div class="h4 m-0">{{receipt.businessName}} - ${{receipt.amount.toFixed(2)}}</div>

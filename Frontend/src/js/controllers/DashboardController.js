@@ -8,26 +8,8 @@ function DashboardController($scope, $http, Notification) {
   $scope.name = "Joseph";
   $scope.number = 4;
 
-  $scope.receipts = [
-    {
-      'businessName': 'CVS',
-      'amount': 5.00,
-      'itemName': 'Toothbrush',
-      'date': '1/20/18 10:25'
-    },
-    {
-      'businessName': 'Chipotle',
-      'amount': 9.00,
-      'itemName': 'Food',
-      'date': '1/2/18 4:01'
-    },
-    {
-      'businessName': 'Toys R Us',
-      'amount': 6800.00,
-      'itemName': 'Unicycle',
-      'date': '1/30/18 20:25'
-    }
-  ];
+  $scope.receipts = [];
+  $scope.currentReceipts = [];
 
   $scope.businessName = "CVS"
 
@@ -48,15 +30,10 @@ function DashboardController($scope, $http, Notification) {
 
   $scope.test = function() {
     var url = 'http://165.227.206.185:8000/account/jos1@ufl.edu';
-
-    // $http({
-    //   url: url,
-    //   method: 'GET',
-    //   headers: {'Content-Type': 'text/plain; charset=utf-8'}
-    // })
     $http.get(url)
       .then(response => {
-        console.log(response);
+        $scope.receipts = response.data;
+        $scope.currentReceipts = response.data;
         Notification.success({message: 'Success!'});
       })
       .catch(function(err) {
@@ -65,13 +42,14 @@ function DashboardController($scope, $http, Notification) {
       });
   }
 
-  // $scope.search = function(string) {
-  //   var searchArray = [];
-  //   $scope.receipts.forEach(rec => {
-  //     if(rec.businessName.contains(string) || rec.itemName.contains(string)) {
-  //       searchArray.push[];
-  //     }
-  //   });
+  $scope.search = function(str) {
+    var searchArray = [];
+    $scope.receipts.forEach(rec => {
+      if(rec.businessName.contains(str) || rec.itemName.contains(str)) {
+        searchArray.push[];
+      }
+      $scope.currentReceipts = searchArray;
+    });
 
-  // }
+  }
 }
