@@ -49,11 +49,12 @@ function DashboardController($scope, $http, Notification) {
   $scope.test = function() {
     var url = 'http://165.227.206.185:8000/account/jos1@ufl.edu';
 
-    $http({
-      url: url,
-      method: 'GET',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-    })
+    // $http({
+    //   url: url,
+    //   method: 'GET',
+    //   headers: {'Content-Type': 'text/plain; charset=utf-8'}
+    // })
+    $http.get(url)
       .then(function(response) {
         console.log(response);
         Notification.success({message: 'Success!'});

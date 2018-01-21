@@ -30,7 +30,7 @@ angular
       templateUrl: 'views/main.html',
       controller: 'DashboardController',
       ncyBreadcrumb: {
-        label: 'Home',
+        label: 'Dashboard',
       }
     })
     .state('app.add-receipts', { // Add receipts
