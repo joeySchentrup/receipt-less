@@ -2,11 +2,34 @@
     <h1>{{name}}'s Expenses Report</h1>
     <hr style="max-width:45%;">
     <br>
-    <canvas id="doughnut" class="chart chart-doughnut"
+    <div class="row">
+        <div class="card col-md-6" style="max-width:50%;">
+            <div class="card-body">
+                <div class="h4 m-0">January Expenses</div>
+                <br>
+                <canvas id="doughnut" class="chart chart-doughnut"
+                    chart-data="pieData" chart-labels="pieLabels">
+                </canvas> 
+            </div>
+        </div>
+        <div class="card col-md-6" style="max-width:50%">
+            <div class="card-body">
+                <div class="h4 m-0">Expenses per Month</div>
+                <br>
+                <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas>
+            </div>
+        </div>
+    </div>
+        
+
+    <!-- <canvas id="doughnut" class="chart chart-doughnut"
         chart-data="data" chart-labels="labels">
-    </canvas> 
-    <canvas id="line" class="chart chart-line" chart-data="data"
+    </canvas>  -->
+    <!-- <canvas id="line" class="chart chart-line" chart-data="data"
         chart-labels="labels" chart-series="series" chart-options="options"
         chart-dataset-override="datasetOverride" chart-click="onClick">
-    </canvas>
+    </canvas> -->
 </center>
