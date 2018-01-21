@@ -12,7 +12,7 @@ func main() {
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"*"}, // All origins
 		AllowedMethods: []string{"GET","POST","DELETE"},
-		AllowedHeaders: []string {"Content-Type"}
+		AllowedHeaders: []string {"Content-Type"},
 	})
 
 	router := mux.NewRouter()
