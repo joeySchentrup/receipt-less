@@ -7,33 +7,10 @@ DashboardController.$inject = ['$scope', '$http', 'Notification'];
 function DashboardController($scope, $http, Notification) {
   $scope.name = "Joseph";
   $scope.number = 4;
+  $scope.searchText = "";
 
-  $scope.receipts = [
-    {
-      'businessName': 'CVS',
-      'amount': 9.00,
-      'itemName': 'Toothbrush',
-      'date': '01/30/18 10:25'
-    },
-    {
-      'businessName': 'McDonalds',
-      'amount': 5.00,
-      'itemName': 'Food',
-      'date': '01/02/18 14:01'
-    },
-    {
-      'businessName': 'Barnes and Noble',
-      'amount': 7.00,
-      'itemName': 'CORS for Dummies',
-      'date': '01/15/18 4:01'
-    },
-    {
-      'businessName': 'Toys R Us',
-      'amount': 6800.00,
-      'itemName': 'Unicycle',
-      'date': '02/20/18 20:25'
-    }
-  ];
+  $scope.receipts = [];
+  $scope.currentReceipts = [];
 
   $scope.sortNames = [
       {
@@ -91,17 +68,21 @@ function DashboardController($scope, $http, Notification) {
     }
   }
 
-  $scope.test = function() {
-    var url = 'http://165.227.206.185:8000/account/jos1@ufl.edu';
-
-    // $http({
-    //   url: url,
-    //   method: 'GET',
-    //   headers: {'Content-Type': 'text/plain; charset=utf-8'}
-    // })
+  var test = function() {
+    var url = 'http://165.227.206.185:8000/receipts/jose13651';
     $http.get(url)
       .then(response => {
         console.log(response);
+        var current = {};
+        for(var i = 0; i < response.data.length; i++) {
+            current = {};
+            current.businessName = response.data[i].business_name; 
+            current.itemName = response.data[i].item_name;
+            current.amount = response.data[i].amount;
+            current.date = response.data[i].date_and_time;
+            $scope.currentReceipts.push(current);
+        }
+        this.receipts = this.currentReceipts;
         Notification.success({message: 'Success!'});
       })
       .catch(function(err) {
@@ -110,13 +91,16 @@ function DashboardController($scope, $http, Notification) {
       });
   }
 
-  // $scope.search = function(string) {
-  //   var searchArray = [];
-  //   $scope.receipts.forEach(rec => {
-  //     if(rec.businessName.contains(string) || rec.itemName.contains(string)) {
-  //       searchArray.push[];
-  //     }
-  //   });
+  test();
 
-  // }
+  $scope.search = function(str) {
+    var searchArray = [];
+    $scope.receipts.forEach(rec => {
+      console.log(rec.businessName);
+      if(rec.businessName.includes(str) || rec.itemName.includes(str)) {
+        searchArray.push(rec);  
+      }
+    });
+    $scope.currentReceipts = searchArray;
+  }
 }
