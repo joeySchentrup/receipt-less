@@ -5,24 +5,24 @@
         <div>
             <div class="form-group">
                 <label>Name of Business
-                    <input type="text" class="form-control" placeholder="The paper store" />
+                    <input type="text" class="form-control" ng-model="businessName" placeholder="The paper store" />
                 </label>
             </div>
             <div class="form-group">
                 <label>Date of Transaction
-                    <input type="text" class="form-control" placeholder="01/01/18" />
+                    <input type="text" class="form-control" ng-model="date" placeholder="01/01/18" />
                 </label>
             </div>
             <div class="row" ng-repeat="i in getNumber(numOfRows) track by $index">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-2">
                     <label>Name of Item
-                        <input type="text" class="form-control" placeholder="Papers" />
+                        <input type="text" class="form-control" ng-model="itemName" placeholder="Papers" />
                     </label>
                 </div>
                 <div class="form-group col-md-2">
                     <label>Price
-                        <input type="text" class="form-control" placeholder="123.45" />
+                        <input type="text" class="form-control" ng-model="price" placeholder="123.45" />
                     </label>
                 </div>
                 <div class="col-md-4"></div>

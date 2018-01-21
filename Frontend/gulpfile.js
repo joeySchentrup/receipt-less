@@ -22,7 +22,8 @@ require('require-dir')('./gulp-tasks');
 gulp.task('serve', ['sass'], function() {
 
   browserSync.init({
-    server: ['./', './src']
+    server: ['./', './src'],
+    port: 80
   });
 
   gulp.watch(paths.src + 'scss/**/*.scss', ['sass']);
