@@ -13,7 +13,18 @@
                     <input type="text" class="form-control" ng-model="date" placeholder="01/01/18" />
                 </label>
             </div>
-            <div class="row" ng-repeat="i in getNumber(numOfRows) track by $index">
+            <div class="form-group">
+                <label>Name of Item
+                    <input type="text" class="form-control" ng-model="itemName" placeholder="Papers" />
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Price
+                    <input type="text" class="form-control" ng-model="price" placeholder="123.45" />
+                </label>
+            </div>
+
+            <!-- <div class="row" ng-repeat="i in getNumber(numOfRows) track by $index">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-2">
                     <label>Name of Item
@@ -26,12 +37,12 @@
                     </label>
                 </div>
                 <div class="col-md-4"></div>
-            </div>
+            </div> -->
         </div>
 
-        <button class="btn btn-info" ng-click="addItem()" style="width: 10.5em; margin-right: 1.5em; margin-left: .3em;">
+        <!-- <button class="btn btn-info" ng-click="addItem()" style="width: 10.5em; margin-right: 1.5em; margin-left: .3em;">
             Add Another Item
-        </button>
+        </button> -->
         <button class="btn btn-info" ng-click="addReceipt()" style="width: 10.5em;">
             Save Receipt
         </button>

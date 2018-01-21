@@ -23,7 +23,7 @@ gulp.task('serve', ['sass'], function() {
 
   browserSync.init({
     server: ['./', './src'],
-    port: 3000
+    port: 80
   });
 
   gulp.watch(paths.src + 'scss/**/*.scss', ['sass']);
