@@ -2,18 +2,11 @@ package main
 
 import (
 	"net/http"
-	"log"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
 
 func main() {
-
-	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"*"}, // All origins
-		AllowedMethods: []string{"GET","POST","DELETE"},
-		AllowedHeaders: []string {"Content-Type"},
-	})
 
 	router := mux.NewRouter()
 
@@ -26,7 +19,9 @@ func main() {
 	router.HandleFunc("/receipts/{collection}/{id}", removeReceipt).Methods("DELETE") //in receipt logic
 	router.HandleFunc("/receipts/{collection}", getReceipts).Methods("GET") 		//in receipt logic
 	
-	log.Fatal(http.ListenAndServe(":8000", router), c.Handler(router))
+	corsRouter := cors.Default().Handler(router)
+	// http.ListenAndServe(":8000", cors.Default().Handler(router))
+	http.ListenAndServe(":8000", corsRouter)
 }
 
 func errCheck(e error) {
