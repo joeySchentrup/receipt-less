@@ -52,7 +52,6 @@ function DashboardController($scope, $http, Notification) {
     $http({
       url: url,
       method: 'GET',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     })
       .then(function(response) {
         console.log(response);
