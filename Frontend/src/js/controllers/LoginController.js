@@ -25,13 +25,11 @@ function LoginController($scope, $http, $state, Notification, TransferService) {
 
       $http.get(url)
         .then(function(response) {
-          console.log(response);
-
           if(response.data !== null) {
             TransferService.setUser(response.data);
 
             Notification.success({ message: 'You are logged in!' });
-            $state.go('app.main', { user: response.data } );
+            $state.go('app.main');
           }
           else Notification.error({ message: 'No account exists. Register an account.' });
         })
@@ -51,8 +49,10 @@ function LoginController($scope, $http, $state, Notification, TransferService) {
       $http.post(url, vm.user, {})
         .then(function(response) {
           if(response.data !== null) {
+            TransferService.setUser(response.data);
+
             Notification.success({ message: 'You are registered and logged in!' });
-            $state.go('app.main', { user: response.data } );
+            $state.go('app.main');
           }
           else Notification.error({ message: 'Error, not logged in!' });
         })

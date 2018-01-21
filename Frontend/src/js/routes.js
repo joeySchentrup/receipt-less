@@ -3,7 +3,7 @@ angular
 .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', 
   function($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
 
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/login');
 
   $ocLazyLoadProvider.config({
     // Set to true if you want to see what and when is dynamically loaded
@@ -31,8 +31,7 @@ angular
       controller: 'DashboardController',
       ncyBreadcrumb: {
         label: 'Dashboard'
-      },
-      params: { user: null }
+      }
     })
     .state('app.add-receipts', { // Add receipts
       url: '/add-receipts',
@@ -40,8 +39,7 @@ angular
       controller: 'AddReceiptsController',
       ncyBreadcrumb: {
         label: 'Add Receipt'
-      },
-      params: { user: null }
+      }
     })
     .state('app.expenses', { // Expenses
       url: '/expenses',
@@ -49,8 +47,7 @@ angular
       controller: 'ExpensesController',
       ncyBreadcrumb: {
         label: 'Expenses'
-      },
-      params: { user: null }
+      }
     })
     .state('app.profile', { // User profile
       url: '/profile',
@@ -59,8 +56,7 @@ angular
       controllerAs: 'vm',
       ncyBreadcrumb: {
         label: 'Profile'
-      },
-      params: { user: null }
+      }
     })
     .state('login', { // Login/register
       url: '/login',

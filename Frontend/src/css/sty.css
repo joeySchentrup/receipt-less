@@ -159,7 +159,7 @@ header.masthead {
 
 [class*="receipt-"]:hover {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 6px 9px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .footerInfo {
