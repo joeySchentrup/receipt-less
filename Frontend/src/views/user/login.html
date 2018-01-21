@@ -15,6 +15,7 @@
                     <h5 style="float: right">
                         -Huffington Post
                     </h5>
+                    <button ng-click="vm.test()">Test</button>
                 </div>
             </div>
 
@@ -24,20 +25,20 @@
                         <div class="device">
                             <div class="screen">
                                 <form name="vm.userForm" ng-submit="vm.login(vm.userForm.$valid)" novalidate>
-                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.firstName.valid }">
-                                        <label for="vm.user.firstName">First Name</label>
-                                        <input type="text" class="form-control" name="vm.user.firstName" 
-                                            ng-model="vm.user.firstName" required/>
-                                        <!-- <div ng-if="!vm.userForm.submitted && !vm.user.firstName.$valid" class="help-block">
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.first_name.valid }">
+                                        <label for="vm.user.first_name">First Name</label>
+                                        <input type="text" class="form-control" name="vm.user.first_name" 
+                                            ng-model="vm.user.first_name" required/>
+                                        <!-- <div ng-if="!vm.userForm.submitted && !vm.user.first_name.$valid" class="help-block">
                                             First name is required.
                                         </div> -->
                                     </div>
 
-                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.lastName.valid }">
-                                        <label for="vm.user.lastName">Last Name</label>
-                                        <input type="text" class="form-control" name="vm.user.lastName" 
-                                            ng-model="vm.user.lastName" required/>
-                                        <!-- <div ng-if="vm.user.lastName.valid" class="help-block">
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.last_name.valid }">
+                                        <label for="vm.user.last_name">Last Name</label>
+                                        <input type="text" class="form-control" name="vm.user.last_name" 
+                                            ng-model="vm.user.last_name" required/>
+                                        <!-- <div ng-if="vm.user.last_name.valid" class="help-block">
                                             Last name is required.
                                         </div> -->
                                     </div>
@@ -51,11 +52,11 @@
                                         </div> -->
                                     </div>
 
-                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.phone.valid }">
-                                        <label for="vm.user.phone">Phone Number</label>
-                                        <input type="text" class="form-control" name="vm.user.phone" 
-                                            ng-model="vm.user.phone" required/>
-                                        <!-- <div ng-if="vm.user.phone.valid" class="help-block">
+                                    <div class="form-group" ng-class="{ 'has-error': !vm.user.phone_number.valid }">
+                                        <label for="vm.user.phone_number">Phone Number</label>
+                                        <input type="text" class="form-control" name="vm.user.phone_number" 
+                                            ng-model="vm.user.phone_number" required/>
+                                        <!-- <div ng-if="vm.user.phone_number.valid" class="help-block">
                                             Phone number is required.
                                         </div> -->
                                     </div>
@@ -69,10 +70,14 @@
                                         </div> -->
                                     </div>
 
-                                    <button class="btn btn-info" type="submit">Login</button>
-                                    <button class="btn btn-info" type="submit">Register</button>
-
-                                    <button ng-click="vm.test()">Test</button>
+                                    <center>
+                                        <button class="btn btn-info" type="submit" style="width: 7em; margin-right: 10px;">
+                                            Login
+                                        </button>
+                                        <button class="btn btn-info" type="submit" style="width: 7em;">
+                                            Register
+                                        </button>
+                                    </center>
                                 </form>
                             </div>
                         </div>

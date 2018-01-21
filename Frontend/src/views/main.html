@@ -1,17 +1,26 @@
 <div class="animated fadeIn">
   <section>
-  <div class="form-group">
-      <select ng-model="selectedName" 
-          ng-options="x for x in names" ng-change="sort(selectedName)">
-      </select>
-  </div>
   <center>
       <h1>{{name}}'s Receipts</h1>
       <br>
   </center>  
-  <div class="form-group">
-
-  </div>
+  <center class="form-group row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <select ng-model="selectedName" 
+          ng-options="x for x in names" ng-change="sort(selectedName)">
+      </select>
+    </div>
+    <div class="search-container col-md-3">
+      <form>
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </center>
 </section>
 
   <div class="row">

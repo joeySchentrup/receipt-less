@@ -10,10 +10,10 @@ function LoginController($scope, $http, $state, Notification) {
   vm.login = login;
   vm.test = test;
   vm.user = {
-    'firstName': 'John',
-    'lastName': 'Smiley',
+    'first_name': 'John',
+    'last_name': 'Smiley',
     'email': 'smile@gmail.com',
-    'phone': 9187287182,
+    'phone_number': 9187287182,
     'password': 'john'
   }
 
