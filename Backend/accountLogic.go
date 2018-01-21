@@ -11,11 +11,17 @@ var ACCOUNT_COLLECTION = "Accouts"
 
 func getAccount(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
+
+
+	// w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	// w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+	// w.Header().Set("Access-Control-Allow-Origin", "*")
 	var result interface{}
 
 	err := GetCollection(ACCOUNT_COLLECTION).Find(M{"email": params["email"]}).One(&result)
 	errCheck(err)
 	json.NewEncoder(w).Encode(result)
+	// w.Header().Set("Testing-Header", "Something")
 
 }
 

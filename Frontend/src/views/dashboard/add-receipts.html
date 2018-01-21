@@ -1,8 +1,40 @@
 <div class="animated fadeIn">
     <center>
         <h1>Enter Receipt</h1>
-        <button ng-click="addReceipt()" class="btn btn-primary plus">
-            <i class="fa fa-plus fa-2x" ></i>
+
+        <div>
+            <div class="form-group">
+                <label>Name of Business
+                    <input type="text" class="form-control" placeholder="The paper store" />
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Date of Transaction
+                    <input type="text" class="form-control" placeholder="01/01/18" />
+                </label>
+            </div>
+            <div class="row" ng-repeat="i in getNumber(numOfRows) track by $index">
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-2">
+                    <label>Name of Item
+                        <input type="text" class="form-control" placeholder="Papers" />
+                    </label>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Price
+                        <input type="text" class="form-control" placeholder="123.45" />
+                    </label>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+
+        <button class="btn btn-info" ng-click="addItem()" style="width: 10.5em; margin-right: 1.5em; margin-left: .3em;">
+            Add Another Item
         </button>
+        <button class="btn btn-info" ng-click="addReceipt()" style="width: 10.5em;">
+            Save Receipt
+        </button>
+        <br> <br>
     </center>
 </div>

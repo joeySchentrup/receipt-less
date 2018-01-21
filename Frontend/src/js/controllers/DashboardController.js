@@ -11,21 +11,60 @@ function DashboardController($scope, $http, Notification) {
   $scope.receipts = [];
   $scope.currentReceipts = [];
 
-  $scope.businessName = "CVS"
+  $scope.sortNames = [
+      {
+        'name': 'Business Name'
+      }, 
+      {
+        'name': 'Highest to Lowest Price',
+      },
+      {
+        'name': 'Item Name'
+      },
+      {
+        'name': 'Least Recent'
+      },
+      {
+        'name': 'Lowest to Highest Price',
+      },
+      {
+        'name': 'Most Recent'
+      }
+  ];
 
-  $scope.names = ['Sort Ascending', 'Sort Descending', 'Sort Date', 'Sort Price']
-  $scope.selectedName = 'Sort Date';
-  $scope.sortChoice = 'amount';
+  //$scope.selectedName = 'Sort Business Name';
+  $scope.sortChoice = 'businessName';
+  $scope.sortBool = false;
 
   $scope.getNumber = function(num) {
     return new Array(num);   
   }
 
   $scope.sort = function(selection) {
-    if(selection = 'Sort Ascending') $scope.sortChoice = 'businessName';
-    else if(selection = 'Sort Descending') $scope.sortChoice = 'itemName';
-    else if(selection = 'Sort Date') $scope.sortChoice = 'date';
-    else if(selection = 'Sort Price') $scope.sortChoice = 'amount';
+    if($scope.selected.name === 'Business Name') {
+      $scope.sortChoice = 'businessName';
+      $scope.sortBool = false;
+    }
+    else if($scope.selected.name === 'Highest to Lowest Price') {
+      $scope.sortChoice = 'amount';
+      $scope.sortBool = true;
+    }
+    else if($scope.selected.name === 'Item Name') {
+      $scope.sortChoice = 'itemName';
+      $scope.sortBool = false;
+    }
+    else if($scope.selected.name === 'Least Recent') {
+      $scope.sortChoice = 'date'; 
+      $scope.sortBool = false;
+    }
+    else if($scope.selected.name === 'Lowest to Highest Price') {
+      $scope.sortChoice = 'amount';
+      $scope.sortBool = false;
+    }
+    else if($scope.selected.name === 'Most Recent') {
+      $scope.sortChoice = 'date'; 
+      $scope.sortBool = true;
+    }
   }
 
   $scope.test = function() {
