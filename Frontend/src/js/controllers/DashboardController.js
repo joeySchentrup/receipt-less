@@ -5,10 +5,8 @@ angular
 
 DashboardController.$inject = ['$scope', '$http', 'Notification', 'TransferService'];
 function DashboardController($scope, $http, Notification, TransferService) {
-  $scope.number = 4;
   $scope.user = TransferService.getUser();
   $scope.searchText = "";
-
   $scope.receipts = [];
   $scope.currentReceipts = [];
 
@@ -33,14 +31,10 @@ function DashboardController($scope, $http, Notification, TransferService) {
       }
   ];
 
-  //$scope.selectedName = 'Sort Business Name';
   $scope.sortChoice = 'businessName';
   $scope.sortBool = false;
 
-  $scope.getNumber = function(num) {
-    return new Array(num);   
-  }
-
+  // Sort Values on change
   $scope.sort = function(selection) {
     if($scope.selected.name === 'Business Name') {
       $scope.sortChoice = 'businessName';
@@ -68,12 +62,17 @@ function DashboardController($scope, $http, Notification, TransferService) {
     }
   }
 
-  var test = function() {
-    var url = 'http://165.227.206.185:8000/receipts/jose13651';
+  // Function to get all user info
+  var userInfo = function() {
+    var email = $scope.user.email;
+    var username = email.substr(0, email.indexOf('@'));
+
+    var url = 'http://165.227.206.185:8000/receipts/' + username;
+
     $http.get(url)
       .then(response => {
-        console.log(response);
         var current = {};
+
         for(var i = 0; i < response.data.length; i++) {
             current = {};
             current.businessName = response.data[i].business_name; 
@@ -82,8 +81,8 @@ function DashboardController($scope, $http, Notification, TransferService) {
             current.date = response.data[i].date_and_time;
             $scope.currentReceipts.push(current);
         }
+
         this.receipts = this.currentReceipts;
-        Notification.success({message: 'Success!'});
       })
       .catch(function(err) {
         console.log(err);
@@ -91,16 +90,18 @@ function DashboardController($scope, $http, Notification, TransferService) {
       });
   }
 
-  test();
+  userInfo();
 
+  // Search receipt items
   $scope.search = function(str) {
     var searchArray = [];
+
     $scope.receipts.forEach(rec => {
-      console.log(rec.businessName);
       if(rec.businessName.includes(str) || rec.itemName.includes(str)) {
         searchArray.push(rec);  
       }
     });
+
     $scope.currentReceipts = searchArray;
   }
 }

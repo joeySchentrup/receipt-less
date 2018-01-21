@@ -3,34 +3,41 @@ angular
 .module('app')
 .controller('AddReceiptsController', AddReceiptsController)
 
-AddReceiptsController.$inject = ['$scope', '$http', 'Notification', '$stateParams'];
+AddReceiptsController.$inject = ['$scope', '$http', 'Notification', 'TransferService'];
 
-function AddReceiptsController($scope, $http, Notification, $stateParams) {
-  $scope.user = $stateParams.user;
+function AddReceiptsController($scope, $http, Notification, TransferService) {
+  $scope.user = TransferService.getUser();
   $scope.numOfRows = 1;
   $scope.businessName = "";
   $scope.itemName = "";
-  $scope.price = "";
+  $scope.price = 0;
   $scope.date = "";
   
   $scope.addReceipt = () => {
-    var url = 'http://165.227.206.185:8000/receipts/jose13651';
+    var email = $scope.user.email;
+    var username = email.substr(0, email.indexOf('@'));
+
+    var url = 'http://165.227.206.185:8000/receipts/' + username;
     var cur = {};
     cur._id = '25';
     cur.business_name = $scope.businessName;
     cur.date_and_time = $scope.date;
-    cur.amount = 15.42;
+    cur.amount = parseFloat($scope.price);
     cur.item_name = $scope.itemName;
-    console.log(cur);
+    
     $http.post(url, cur, {})
       .then(res => {
-          console.log(res);
+          Notification.success({ message: 'Add receipt successful!' });
+
+          $scope.businessName = "";
+          $scope.itemName = "";
+          $scope.price = 0;
+          $scope.date = "";
       })
       .catch(function(err) {
         console.log(err);
         Notification.error({message: 'Error!'});
       });
-    Notification.success({ message: 'Add receipt successful!' });
   }
 
   $scope.addItem = () => {
