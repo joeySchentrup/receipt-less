@@ -7,13 +7,18 @@
   <center class="form-group row">
     <div class="col-md-3"></div>
     <div class="col-md-3">
-      <select ng-model="selectedName" 
-          ng-options="x for x in names" ng-change="sort(selectedName)">
+      <!-- <select ng-model="selected" ng-options="sortName.name for sortName in sortNames" ng-change="sort()"> -->
+      <select ng-model="selected" ng-change="sort()">
+        <option value="">--- Sort by ---</option>
+        <option ng-repeat="sortName in sortNames"
+            ng-value="sortName">
+          {{sortName.name}}
+        </option>
       </select>
     </div>
     <div class="search-container col-md-3">
       <form>
-        <input type="text" placeholder="Search.." name="search">
+        <input type="text" placeholder="Search..." name="search">
         <button type="submit">
           <i class="fa fa-search"></i>
         </button>
@@ -24,10 +29,11 @@
 </section>
 
   <div class="row">
-    <center ng-repeat="receipt in receipts track by $index" class="col-sm-6 col-lg-3">
+    <center ng-repeat="receipt in receipts | orderBy:sortChoice:sortBool" class="col-sm-6 col-lg-3">
       <div class="card">
         <div class="card-body receipt-{{$index}}">
-          <div class="h4 m-0">{{receipt.businessName}} - ${{receipt.amount.toFixed(2)}}</div>
+          <div class="h4 m-0">{{receipt.businessName}}</div>
+          <div class="h4 m-0">${{receipt.amount.toFixed(2)}}</div>
           <div>{{receipt.itemName}}</div>
           <small class="text-muted">{{receipt.date}}</small>
         </div>
