@@ -13,7 +13,7 @@ Run tis inside the backend folder:
 
 Run the backed service, include flag -d if you dont want to see it run
 
-    docker run -p 8000:8000 -n backend --link mongo:mongo receipt-less:1
+    docker run -p 8000:8000 --name backend --link mongo:mongo receipt-less:1
 
 (Optional) Run Mongo Express to see inside DB
 
