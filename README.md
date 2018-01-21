@@ -8,16 +8,16 @@ Website Link: http://receipt-less.com/
 ## How to run locally
 
 - Install dependencies:
-
-    npm install -g gulp
-    cd Frontend/
-    npm install
+    
+        npm install -g gulp
+        cd Frontend/
+        npm install
 
 - Change gulpfile.js port to any available port (eg. 3000)
 
 - Start the app
 
-    gulp
+        gulp
 
 ## Backend Docker set up:
 
