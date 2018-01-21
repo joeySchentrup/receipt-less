@@ -3,9 +3,9 @@ angular
 .module('app')
 .controller('ExpensesController', ExpensesController)
 
-ExpensesController.$inject = ['$scope', '$http'];
-function ExpensesController($scope, $http) {
-  $scope.name = "Joseph";
+ExpensesController.$inject = ['$scope', '$http', 'TransferService'];
+function ExpensesController($scope, $http, TransferService) {
+  $scope.user = TransferService.getUser();
 
   $scope.pieLabels = ["Groceries", "Movies", "School"];
   $scope.pieData = [300, 500, 100];

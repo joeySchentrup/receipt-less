@@ -3,10 +3,10 @@ angular
 .module('app')
 .controller('DashboardController', DashboardController)
 
-DashboardController.$inject = ['$scope', '$http', 'Notification'];
-function DashboardController($scope, $http, Notification) {
-  $scope.name = "Joseph";
+DashboardController.$inject = ['$scope', '$http', 'Notification', 'TransferService'];
+function DashboardController($scope, $http, Notification, TransferService) {
   $scope.number = 4;
+  $scope.user = TransferService.getUser();
 
   $scope.receipts = [
     {
@@ -89,25 +89,6 @@ function DashboardController($scope, $http, Notification) {
       $scope.sortChoice = 'date'; 
       $scope.sortBool = true;
     }
-  }
-
-  $scope.test = function() {
-    var url = 'http://165.227.206.185:8000/account/jos1@ufl.edu';
-
-    // $http({
-    //   url: url,
-    //   method: 'GET',
-    //   headers: {'Content-Type': 'text/plain; charset=utf-8'}
-    // })
-    $http.get(url)
-      .then(response => {
-        console.log(response);
-        Notification.success({message: 'Success!'});
-      })
-      .catch(function(err) {
-        console.log(err);
-        Notification.error({message: 'Error!'});
-      });
   }
 
   // $scope.search = function(string) {

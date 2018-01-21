@@ -15,7 +15,6 @@
                     <h5 style="float: right">
                         -Huffington Post
                     </h5>
-                    <button ng-click="vm.test()">Test</button>
                 </div>
             </div>
 
@@ -24,10 +23,10 @@
                     <div class="device-mockup iphone6_plus portrait white">
                         <div class="device">
                             <div class="screen">
-                                <form name="vm.userForm" ng-submit="vm.login(vm.userForm.$valid)" novalidate>
+                                <form name="vm.userForm" novalidate>
                                     <div class="form-group" ng-class="{ 'has-error': !vm.user.first_name.valid }">
                                         <label for="vm.user.first_name">First Name</label>
-                                        <input type="text" class="form-control" name="vm.user.first_name" 
+                                        <input type="text" class="form-control" name="vm.user.first_name" placeholder="Joe"
                                             ng-model="vm.user.first_name" required/>
                                         <!-- <div ng-if="!vm.userForm.submitted && !vm.user.first_name.$valid" class="help-block">
                                             First name is required.
@@ -36,7 +35,7 @@
 
                                     <div class="form-group" ng-class="{ 'has-error': !vm.user.last_name.valid }">
                                         <label for="vm.user.last_name">Last Name</label>
-                                        <input type="text" class="form-control" name="vm.user.last_name" 
+                                        <input type="text" class="form-control" name="vm.user.last_name" placeholder="Doe"
                                             ng-model="vm.user.last_name" required/>
                                         <!-- <div ng-if="vm.user.last_name.valid" class="help-block">
                                             Last name is required.
@@ -45,7 +44,7 @@
 
                                     <div class="form-group" ng-class="{ 'has-error': !vm.user.email.valid }">
                                         <label for="vm.user.email">Email</label>
-                                        <input type="text" class="form-control" name="vm.user.email" 
+                                        <input type="text" class="form-control" name="vm.user.email" placeholder="joedoe@gmail.com"
                                             ng-model="vm.user.email" required/>
                                         <!-- <div ng-if="vm.user.email.valid" class="help-block">
                                             Email is required.
@@ -54,7 +53,7 @@
 
                                     <div class="form-group" ng-class="{ 'has-error': !vm.user.phone_number.valid }">
                                         <label for="vm.user.phone_number">Phone Number</label>
-                                        <input type="text" class="form-control" name="vm.user.phone_number" 
+                                        <input type="text" class="form-control" name="vm.user.phone_number" placeholder="1234567890"
                                             ng-model="vm.user.phone_number" required/>
                                         <!-- <div ng-if="vm.user.phone_number.valid" class="help-block">
                                             Phone number is required.
@@ -63,7 +62,7 @@
 
                                     <div class="form-group" ng-class="{ 'has-error': !vm.user.password.valid }">
                                         <label for="vm.user.password">Password</label>
-                                        <input type="text" class="form-control" name="vm.user.password" 
+                                        <input type="text" class="form-control" name="vm.user.password" placeholder="password"
                                             ng-model="vm.user.password" ng-attr-type="{{ showPassword ? 'text' : 'password' }}" required/>
                                         <!-- <div ng-if="vm.user.password.valid" class="help-block">
                                             Password is required.
@@ -71,10 +70,10 @@
                                     </div>
 
                                     <center>
-                                        <button class="btn btn-info" type="submit" style="width: 7em; margin-right: 10px;">
+                                        <button class="btn btn-info" ng-click="vm.login(vm.userForm.$valid)" style="width: 7em; margin-right: 10px;">
                                             Login
                                         </button>
-                                        <button class="btn btn-info" type="submit" style="width: 7em;">
+                                        <button class="btn btn-info" ng-click="vm.register(vm.userForm.$valid)" style="width: 7em;">
                                             Register
                                         </button>
                                     </center>

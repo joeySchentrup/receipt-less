@@ -30,24 +30,27 @@ angular
       templateUrl: 'views/main.html',
       controller: 'DashboardController',
       ncyBreadcrumb: {
-        label: 'Dashboard',
-      }
+        label: 'Dashboard'
+      },
+      params: { user: null }
     })
     .state('app.add-receipts', { // Add receipts
       url: '/add-receipts',
       templateUrl: 'views/dashboard/add-receipts.html',
       controller: 'AddReceiptsController',
       ncyBreadcrumb: {
-        label: 'Add Receipt',
-      }
+        label: 'Add Receipt'
+      },
+      params: { user: null }
     })
     .state('app.expenses', { // Expenses
       url: '/expenses',
       templateUrl: 'views/dashboard/expenses.html',
       controller: 'ExpensesController',
       ncyBreadcrumb: {
-        label: 'Expenses',
-      }
+        label: 'Expenses'
+      },
+      params: { user: null }
     })
     .state('app.profile', { // User profile
       url: '/profile',
@@ -55,8 +58,9 @@ angular
       controller: 'ProfileController',
       controllerAs: 'vm',
       ncyBreadcrumb: {
-        label: 'Profile',
-      }
+        label: 'Profile'
+      },
+      params: { user: null }
     })
     .state('login', { // Login/register
       url: '/login',
