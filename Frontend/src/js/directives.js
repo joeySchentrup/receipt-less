@@ -11,6 +11,24 @@ angular
 .directive('toggle', bootstrapTooltipsPopoversDirective)
 .directive('tab', bootstrapTabsDirective)
 .directive('button', cardCollapseDirective)
+.factory('TransferService', TransferService)
+
+function TransferService() {
+  var savedUserData = {};
+
+  function setUser(userData) {
+    savedUserData = userData;
+  }
+
+  function getUser() {
+    return savedUserData;
+  }
+
+  return {
+    setUser: setUser,
+    getUser: getUser
+  };
+}
 
 function includeReplace() {
   var directive = {

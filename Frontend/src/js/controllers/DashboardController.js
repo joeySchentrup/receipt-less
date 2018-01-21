@@ -3,10 +3,10 @@ angular
 .module('app')
 .controller('DashboardController', DashboardController)
 
-DashboardController.$inject = ['$scope', '$http', 'Notification'];
-function DashboardController($scope, $http, Notification) {
-  $scope.name = "Joseph";
+DashboardController.$inject = ['$scope', '$http', 'Notification', 'TransferService'];
+function DashboardController($scope, $http, Notification, TransferService) {
   $scope.number = 4;
+  $scope.user = TransferService.getUser();
   $scope.searchText = "";
 
   $scope.receipts = [];

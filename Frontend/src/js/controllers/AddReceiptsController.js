@@ -3,9 +3,10 @@ angular
 .module('app')
 .controller('AddReceiptsController', AddReceiptsController)
 
-AddReceiptsController.$inject = ['$scope', '$http', 'Notification'];
+AddReceiptsController.$inject = ['$scope', '$http', 'Notification', '$stateParams'];
 
-function AddReceiptsController($scope, $http, Notification) {
+function AddReceiptsController($scope, $http, Notification, $stateParams) {
+  $scope.user = $stateParams.user;
   $scope.numOfRows = 1;
   $scope.businessName = "";
   $scope.itemName = "";
