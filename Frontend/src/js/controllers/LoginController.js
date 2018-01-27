@@ -21,7 +21,7 @@ function LoginController($scope, $http, $state, Notification, TransferService) {
   function login(isValid) {
     if(!isValid) Notification.error({ message: 'All fields must be submitted!' });
     else {
-      var url = 'http://165.227.206.185:8000/account/' + vm.user.email;
+      var url = 'http://receiptlessbackend.ddns.net:8000/account/' + vm.user.email;
 
       $http.get(url)
         .then(function(response) {
@@ -43,7 +43,7 @@ function LoginController($scope, $http, $state, Notification, TransferService) {
   function register(isValid) {
     if(!isValid) Notification.error({ message: 'All fields must be submitted!' });
     else {
-      var url = 'http://165.227.206.185:8000/account';
+      var url = 'http://receiptlessbackend.ddns.net:8000/account';
       vm.user.phone_number = parseInt(vm.user.phone_number);
 
       $http.post(url, vm.user, {})

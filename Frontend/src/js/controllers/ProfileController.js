@@ -9,7 +9,7 @@ function ProfileController($scope, $http, Notification, TransferService) {
 
   $scope.saveChanges = () => {
     var id = $scope.user._id;
-    var url = 'http://165.227.206.185:8000/account/' + id;
+    var url = 'http://receiptlessbackend.ddns.net:8000/account/' + id;
 
     $http.post(url, $scope.user, {})
       .then(res => {
