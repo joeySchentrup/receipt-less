@@ -108,7 +108,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 :: 6. Run Gulp Task
 IF EXIST "%DEPLOYMENT_TARGET%\gulpfile.js" (
   pushd "%DEPLOYMENT_TARGET%"
-  call :ExecuteCmd %DEPLOYMENT_TARGET%\node_modules\gulp\bin\gulp.js sass --gulpfile .\gulpfile.js
+  call :ExecuteCmd %DEPLOYMENT_TARGET%\node_modules\.bin\gulp sass --gulpfile .\gulpfile.js
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
