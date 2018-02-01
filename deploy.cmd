@@ -18,9 +18,6 @@ IF %ERRORLEVEL% NEQ 0 (
 :: Setup
 :: -----
 
-::Move into frontend folder first
-cd Frontend
-
 setlocal enabledelayedexpansion
 
 SET ARTIFACTS=%~dp0%..\artifacts
@@ -90,6 +87,9 @@ goto :EOF
 
 :Deployment
 echo Handling node.js deployment.
+
+::Move into frontend folder first
+cd Frontend
 
 :: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
