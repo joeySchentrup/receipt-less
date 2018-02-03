@@ -108,25 +108,32 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
-:: Execute command routine that will echo out when error
+:: Helper Function: Execute command routine that will echo out when error
 :ExecuteCmd
 setlocal
 set _CMD_=%*
 call %_CMD_%
 if "%ERRORLEVEL%" NEQ "0" echo Failed exitCode=%ERRORLEVEL%, command=%_CMD_%
 exit /b %ERRORLEVEL%
+::End Helper Function
 
+:: Helper Function
 :error
 endlocal
 echo An error has occurred during web site deployment.
 call :exitSetErrorLevel
 call :exitFromFunction 2>nul
+::End Helper Function
 
+:: Helper Function
 :exitSetErrorLevel
 exit /b 1
+::End Helper Function
 
+:: Helper Function
 :exitFromFunction
 ()
+::End Helper Function
 
 :end
 endlocal
