@@ -67,7 +67,7 @@ function DashboardController($scope, $http, Notification, TransferService) {
     var email = $scope.user.email;
     var username = email.substr(0, email.indexOf('@'));
 
-    var url = 'http://165.227.206.185:8000/receipts/' + username;
+    var url = 'http://receiptlessbackend.ddns.net:8000/receipts/' + username;
 
     $http.get(url)
       .then(response => {
